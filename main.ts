@@ -39,3 +39,20 @@ function ad2(num1:number, num2?:number) : number{
     return num1+num2;
 }
 let res1 = ad2(8);
+
+//interface
+interface Person {
+    firstname:string;
+    lastname?:string;
+}
+function fullname(person: Person) {
+    console.log(`${person.firstname}`);
+}
+let p:{
+    firstname:"deepika";
+    
+};
+fullname(p);
+
+//classes and modifiers
+
