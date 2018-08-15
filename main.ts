@@ -56,3 +56,32 @@ fullname(p);
 
 //classes and modifiers
 
+class Emp {
+   // private empname: string;
+   empname: string;
+   //protected empname : string;
+    constructor(name: string) {
+        this.empname = name;
+    }
+    greet() {
+        console.log(this.empname);
+    }
+}
+
+let emp1 = new Emp("deepika");
+console.log(emp1.empname);
+emp1.greet();
+
+class manager extends Emp {
+    constructor(managername :string) {
+        super(managername);
+    }
+    delegatework() {
+        console.log("nothis is doing");
+    }
+
+}
+
+let mang = new manager("deepika");
+mang.greet();
+mang.delegatework();
