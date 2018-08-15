@@ -20,3 +20,22 @@ a=10;
 
 let b=10;
 // b= "deepika";
+
+let nultitype : boolean | number;
+
+
+//functions
+
+function add(num1,num2) {
+    return num1+num2;
+}
+
+function add2(num1:number, num2:number) : number{
+    return num1+num2;
+}
+//add2(); // error
+let res = add2(10,10);
+function ad2(num1:number, num2?:number) : number{
+    return num1+num2;
+}
+let res1 = ad2(8);

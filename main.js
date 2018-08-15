@@ -17,3 +17,17 @@ a = "deepika";
 a = 10;
 var b = 10;
 // b= "deepika";
+var nultitype;
+//functions
+function add(num1, num2) {
+    return num1 + num2;
+}
+function add2(num1, num2) {
+    return num1 + num2;
+}
+//add2(); // error
+var res = add2(10, 10);
+function ad2(num1, num2) {
+    return num1 + num2;
+}
+var res1 = ad2(8);
