@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input,Output } from '@angular/core';
+import { EventEmitter } from '../../../node_modules/protractor';
 
 @Component({
   selector: 'app-test',
@@ -6,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
          <h2 *ngIf="hasError">
             Hi Ram
          </h2>
+         <h2> {{person | json}} </h2>
+         <div [ngSwitch]="color">
+         <div *ngSwitchCase ="'red'">this is red case</div>
+         <div *ngSwitchCase ="'blue'">this is blue case</div>
+         <div *ngSwitchCase ="'orange'">this is orange case</div>
 
+         </div>
          <input [(ngModel)]="myname" type="text">
          {{myname}}
          <input #myin type="text">
@@ -59,6 +66,8 @@ import { Component, OnInit } from '@angular/core';
 //template reference variable
 //two way binding
 //structural directives
+//component interaction
+//pipes
 /*
 [`
   .text-success{
@@ -73,12 +82,18 @@ import { Component, OnInit } from '@angular/core';
   `*/
 export class TestComponent implements OnInit {
  public name = "vishwas";
+ //@Input() public parentData;
  public href = window.location.href;
  public myid = "testid"
  public isDisabled = "false";
  public sclass = "text-success";
  public hasError = false;
  public highlightColor = "red";
+ //pipes
+public person= {
+  "name": "deepika",
+  "age":100
+}
  //event binding
  public eventhandlig = "";
 
@@ -92,6 +107,8 @@ onClick(event) {
 log(value){
   console.log(value);
 }
+//ng switch case
+public color = "red";
  //for ng-directive
 
  public isSpecial = true;
@@ -101,9 +118,14 @@ log(value){
  }
  //two way binding
  public myname ="";
+//component interaction
 
+//@Output() public childEvent = new EventEmitter();
   constructor() { }
-
+ /* fireEvent() {
+    this.childEvent.emit('this is from chid to parent component');
+  }
+*/
   ngOnInit() {
   }
   greetUser() {
