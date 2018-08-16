@@ -13,12 +13,13 @@ import { EmployeeService } from '../employee.service';
 })
 export class EmployeeDetailComponent implements OnInit {
   public employees = [];
-  constructor(private _employees:EmployeeService) {
+  constructor(private _employeeService:EmployeeService) {
 
    }
 
-  ngOnInit() {
-    this.employees = this._employees.getEmployee();
-  }
+   ngOnInit() {
+    this._employeeService.getEmployee()
+    .subscribe(data => this.employees = data);
+ }
 
 }
