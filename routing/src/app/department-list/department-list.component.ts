@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute,ParamMap} from '@angular/router';
+import { relative } from 'path';
 @Component({
   selector: 'department-list',
   template: `
@@ -34,7 +35,7 @@ public selectedId;
   });}
   onselect(department) {
     this.router.navigate(['/department',department.id]);
-
+    //this.router.navigate([department.id], {relativeTo:this.activatedRouter});
   }
   isSelected(department){
     return this.selectedId==department.id;

@@ -1,11 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {  ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { relative } from 'path';
 
 @Component({
   selector: 'department-detail',
   template: `
     <p>
      you selected id = {{departmentId}}
+     </p>
+     <p>
+     <button (click)="showoverview()">overview</button>
+     <button (click)="showcontact()">contact</button>
+     </p>
+     <router-outlet></router-outlet>
     <a (click)="goNext()"> Next </a>
     <a (click)="goPrevious()"> Previous </a>
    <div>
@@ -37,7 +44,14 @@ export class DepartmentDetailComponent implements OnInit {
   onBack() {
     let selectedId = this.departmentId? this.departmentId:null  ;
     this.router.navigate(['/department',{id: selectedId}]);
+    //this.router.navigate(['../',{id:selectedId}],{relativeTo:this.activatedRoute});
 
+  }
+  showoverview() {
+    this.router.navigate(['overview'],{relativeTo:this.activatedRoute});
+  }
+  showcontact() {
+    this.router.navigate(['contact'],{relativeTo:this.activatedRoute});
   }
 
 }
